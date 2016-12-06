@@ -42,11 +42,11 @@ def run(context):
                 #翼型をスケッチ
                 points = adsk.core.ObjectCollection.create()
                 for p, i in zip(foil[:-1], range(len(foil[:-1]))):
-                    x = (p[0] - r[3]/100) * r[2]
-                    y = - (p[1] - r[4]/100) * r[2]
+                    x = (p[0] - r[3]/100) * r[2] * 0.1
+                    y = - (p[1] - r[4]/100) * r[2] * 0.1
                     rx = x * math.cos(math.radians(r[1])) - y * math.sin(math.radians(r[1]))
                     ry = x * math.sin(math.radians(r[1])) + y * math.cos(math.radians(r[1]))
-                    node = adsk.core.Point3D.create(lr * rx, ry, lr * r[0])
+                    node = adsk.core.Point3D.create(lr * rx, ry, lr * r[0] * 0.1)
                     points.add(node)
                     if i == 0:
                         ends.add(node)
